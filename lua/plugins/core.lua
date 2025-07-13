@@ -1,9 +1,9 @@
 return {
-  { "kepano/flexoki-neovim" },
+  { "EdenEast/nightfox.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "flexoki",
+      colorscheme = "dawnfox",
     },
   },
 }
