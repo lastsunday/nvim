@@ -1,8 +1,3 @@
--- ignore
-if true then
-  return {}
-end
-
 vim.g.lazyvim_blink_main = true
 return {
   {
@@ -26,12 +21,25 @@ return {
             api_key = "TERM",
             name = "Ollama",
             end_point = "http://127.0.0.1:11434/v1/completions",
-            model = "qwen2.5-coder:7b",
+            model = "qwen2.5-coder:3b",
             optional = {
               max_tokens = 56,
               top_p = 0.9,
             },
           },
+        },
+        -- Llama.cpp does not support the `suffix` option in FIM completion.
+        -- Therefore, we must disable it and manually populate the special
+        -- tokens required for FIM completion.
+        template = {
+          prompt = function(context_before_cursor, context_after_cursor, _)
+            return "<|fim_prefix|>"
+              .. context_before_cursor
+              .. "<|fim_suffix|>"
+              .. context_after_cursor
+              .. "<|fim_middle|>"
+          end,
+          suffix = false,
         },
       })
     end,
