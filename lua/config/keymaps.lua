@@ -9,3 +9,11 @@
 vim.keymap.set("n", "<leader>of", require("telescope").extensions.flutter.commands, { desc = "Open flutter commands" })
 vim.keymap.set("n", "<leader>ot", require("telescope.builtin").builtin, { desc = "Open telescope" })
 --- flutter end
+
+--- https://codecompanion.olimorris.dev/getting-started#suggested-plugin-workflow
+vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
