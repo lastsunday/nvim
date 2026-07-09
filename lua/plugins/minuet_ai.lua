@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 vim.g.lazyvim_blink_main = true
 return {
   {
